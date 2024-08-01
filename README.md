@@ -1,1 +1,1 @@
-# hackathon_yandex_gazprom
+# Хакатон Яндекс Газпром
