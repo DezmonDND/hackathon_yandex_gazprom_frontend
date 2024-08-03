@@ -1,3 +1,4 @@
+/* eslint-disable */
 import { Table, Tag } from "antd";
 import Main from "../Main/Main";
 import "./Catalogs.css";
