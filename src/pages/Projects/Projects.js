@@ -1,11 +1,11 @@
+import Main from "../Main/Main";
 import "./Projects.css";
 
 function Projects() {
   return (
-    <div className="projects">
-      <div className="projects__icon"></div>
-      <h2 className="projects__title">Каталог</h2>
-    </div>
+    <Main>
+      <h2 className="projects__title">Проекты</h2>
+    </Main>
   );
 }
 
