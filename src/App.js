@@ -5,17 +5,21 @@ import Catalogs from "./pages/Catalogs/Catalogs";
 import Company from "./pages/Company/Company";
 import Projects from "./pages/Projects/Projects";
 import Burger from "./pages/Burger/Burger";
+import SideBar from "./components/SideBar/SideBar";
 
 function App() {
   return (
     <div className="App">
       <Header></Header>
-      <Routes>
-        <Route path="/company" element={<Company></Company>}></Route>
-        <Route path="/projects" element={<Projects></Projects>}></Route>
-        <Route path="/catalogs" element={<Catalogs></Catalogs>}></Route>
-        <Route path="/settings" element={<Burger></Burger>}></Route>
-      </Routes>
+      <main className="main">
+        <SideBar></SideBar>
+        <Routes>
+          <Route exact path="/company" element={<Company></Company>}></Route>
+          <Route exact path="/projects" element={<Projects></Projects>}></Route>
+          <Route exact path="/catalogs" element={<Catalogs></Catalogs>}></Route>
+          <Route exact path="/burger" element={<Burger></Burger>}></Route>
+        </Routes>
+      </main>
     </div>
   );
 }

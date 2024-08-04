@@ -1,11 +1,16 @@
-import Main from "../Main/Main";
+import { Layout } from "antd";
 import "./Projects.css";
 
 function Projects() {
   return (
-    <Main>
-      <h2 className="projects__title">Проекты</h2>
-    </Main>
+    <Layout
+      style={{
+        height: "calc(100vh - 48px)",
+      }}
+    >
+      {/* <SideBar></SideBar> */}
+      <h2>Проекты</h2>
+    </Layout>
   );
 }
 
