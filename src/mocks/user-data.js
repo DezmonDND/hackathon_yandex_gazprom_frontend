@@ -54,3 +54,69 @@ export const USERS = [
     skills: ["cyan", "purple"],
   },
 ];
+
+export const PROJECTS = [
+  {
+    title: "Отчеты с оооочень длинным названиями",
+    description: "Добавление панели мониторинга для ежеквартального отчета",
+    tags: [{ name: "Высокий" }, { name: "Выполнено" }, { name: "Аутсорс" }],
+    project_value: "+2",
+    worker_value: "(52)",
+  },
+  {
+    title: "Панель управления отчетами",
+    description: "Добавление панели мониторинга для ежеквартального отчета",
+    tags: [{ name: "Высокий" }, { name: "Не начато" }],
+    project_value: "+2",
+    worker_value: "(150)",
+  },
+  {
+    title: "Редизайн веб сайта",
+    description: "Добавление обновленных элементов бренда",
+    tags: [{ name: "Средний" }, { name: "В процессе" }],
+    project_value: "+2",
+    worker_value: "(60)",
+  },
+  {
+    title: "Оптимизация отображения в Space",
+    description: "Использование новой базы данных через ...",
+    tags: [{ name: "Средний" }, { name: "В процессе" }],
+    project_value: "+2",
+    worker_value: "(20)",
+  },
+  {
+    title: "Оптимизация отображения в Space",
+    description: "Использование новой базы данных через ...",
+    tags: [{ name: "Средний" }, { name: "В процессе" }],
+    project_value: "+2",
+    worker_value: "(20)",
+  },
+  {
+    title: "Оптимизация отображения в Space",
+    description: "Использование новой базы данных через ...",
+    tags: [{ name: "Средний" }, { name: "В процессе" }],
+    project_value: "+2",
+    worker_value: "(20)",
+  },
+  {
+    title: "Оптимизация отображения в Space",
+    description: "Использование новой базы данных через ...",
+    tags: [{ name: "Средний" }, { name: "В процессе" }],
+    project_value: "+2",
+    worker_value: "(20)",
+  },
+  {
+    title: "Оптимизация отображения в Space",
+    description: "Использование новой базы данных через ...",
+    tags: [{ name: "Средний" }, { name: "В процессе" }],
+    project_value: "+2",
+    worker_value: "(20)",
+  },
+  {
+    title: "Оптимизация отображения в Space",
+    description: "Использование новой базы данных через ...",
+    tags: [{ name: "Средний" }, { name: "В процессе" }],
+    project_value: "+2",
+    worker_value: "(20)",
+  },
+];

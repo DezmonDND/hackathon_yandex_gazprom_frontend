@@ -1,0 +1,24 @@
+.card__data {
+    display: flex;
+    flex-direction: column;
+    margin-top: -12px;
+
+}
+
+.card__projects {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+   
+}
+
+.card__title {
+    /* font-size: 16px; */
+
+}
+.card__more {
+    opacity: .45;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    text-wrap: nowrap;
+}
