@@ -1,3 +1,8 @@
+import Avatar_4 from "../assets/images/avatar_1.png";
+import Avatar_1 from "../assets/images/avatar_2.png";
+import Avatar_2 from "../assets/images/avatar_3.png";
+import Avatar_3 from "../assets/images/avatar_4.png";
+
 export const USERS = [
   {
     key: "1",
@@ -118,5 +123,93 @@ export const PROJECTS = [
     tags: [{ name: "Средний" }, { name: "В процессе" }],
     project_value: "+2",
     worker_value: "(20)",
+  },
+];
+
+export const COMPANY = [
+  {
+    expanded: true,
+    type: "person",
+    data: {
+      department: "Tech Nexus",
+      image: Avatar_1,
+      name: "Александр Александров",
+      title: "CEO",
+      worker_value: "(200)",
+    },
+    children: [
+      {
+        expanded: true,
+        type: "person",
+        data: {
+          department: "Департамент разработки",
+          image: Avatar_2,
+          name: "Игорь Дроздов",
+          title: "CTO",
+          worker_value: "(120)",
+        },
+        children: [
+          {
+            expanded: true,
+            type: "person",
+            data: {
+              department: "Департамент разработки",
+              image: Avatar_2,
+              name: "Игорь Дроздов",
+              title: "CTO",
+              worker_value: "(120)",
+            },
+          },
+        ],
+      },
+      {
+        expanded: true,
+        type: "person",
+        data: {
+          department: "Департамент управления продуктами",
+          image: Avatar_3,
+          name: "Андрей Алексеев",
+          title: "CPO",
+          worker_value: "(30)",
+        },
+        children: [
+          {
+            expanded: true,
+            type: "person",
+            data: {
+              department: "Департамент управления продуктами",
+              image: Avatar_3,
+              name: "Андрей Алексеев",
+              title: "CPO",
+              worker_value: "(30)",
+            },
+          },
+        ],
+      },
+      {
+        expanded: true,
+        type: "person",
+        data: {
+          department: "Информационный департамент",
+          image: Avatar_4,
+          name: "Елена Сидорова",
+          title: "CIO",
+          worker_value: "(50)",
+        },
+        children: [
+          {
+            expanded: true,
+            type: "person",
+            data: {
+              department: "Информационный департамент",
+              image: Avatar_4,
+              name: "Елена Сидорова",
+              title: "CIO",
+              worker_value: "(50)",
+            },
+          },
+        ],
+      },
+    ],
   },
 ];

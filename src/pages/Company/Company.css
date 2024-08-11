@@ -1,0 +1,19 @@
+.card {
+  background: var(--surface-card);
+  padding: 2rem;
+  border-radius: 10px;
+  margin-bottom: 1rem;
+}
+
+.card__image {
+  width: 40px;
+}
+
+.p-organizationchart-node-content .p-node-toggler .p-node-toggler-icon {
+  top: 22px;
+  color: #bfbfbf;
+}
+
+.p-organizationchart-line-down {
+  background-color: #bfbfbf;
+}
