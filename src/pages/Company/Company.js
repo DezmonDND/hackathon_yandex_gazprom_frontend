@@ -7,10 +7,8 @@ import {
   Avatar,
   Badge,
   Card,
-  ConfigProvider,
   Flex,
   Layout,
-  Tag,
   Tooltip,
 } from "antd";
 import { AntDesignOutlined, UserOutlined } from "@ant-design/icons";
