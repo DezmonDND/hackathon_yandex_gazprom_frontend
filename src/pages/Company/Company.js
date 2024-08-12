@@ -136,7 +136,8 @@ function Company() {
     >
       <div className="card overflow-x-auto">
         <OrganizationChart
-          value={COMPANY}
+        
+          value={COMPANY}          
           selectionMode="multiple"
           selection={selection}
           onSelectionChange={(e) => setSelection(e.data)}
