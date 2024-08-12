@@ -136,6 +136,7 @@ export const COMPANY = [
       name: "Александр Александров",
       title: "CEO",
       worker_value: "(200)",
+      projects: [],
     },
     children: [
       {
@@ -147,6 +148,7 @@ export const COMPANY = [
           name: "Игорь Дроздов",
           title: "CTO",
           worker_value: "(120)",
+          projects: [],
         },
         children: [
           {
@@ -158,6 +160,7 @@ export const COMPANY = [
               name: "Игорь Дроздов",
               title: "CTO",
               worker_value: "(120)",
+              projects: [{ name: "Сервис InSight" }, { name: "CodEX Project" }],
             },
           },
         ],
@@ -171,6 +174,7 @@ export const COMPANY = [
           name: "Андрей Алексеев",
           title: "CPO",
           worker_value: "(30)",
+          projects: [],
         },
         children: [
           {
@@ -182,6 +186,7 @@ export const COMPANY = [
               name: "Андрей Алексеев",
               title: "CPO",
               worker_value: "(30)",
+              projects: [{ name: "Сервис InSight" }, { name: "CodEX Project" }],
             },
           },
         ],
@@ -195,6 +200,7 @@ export const COMPANY = [
           name: "Елена Сидорова",
           title: "CIO",
           worker_value: "(50)",
+          projects: [],
         },
         children: [
           {
@@ -206,6 +212,7 @@ export const COMPANY = [
               name: "Елена Сидорова",
               title: "CIO",
               worker_value: "(50)",
+              projects: [{ name: "Сервис InSight" }, { name: "CodEX Project" }],
             },
           },
         ],

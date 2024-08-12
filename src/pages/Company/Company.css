@@ -1,12 +1,15 @@
 .card {
-  background: var(--surface-card);
-  padding: 2rem;
-  border-radius: 10px;
-  margin-bottom: 1rem;
+  padding: 24px 56px;
 }
 
 .card__image {
   width: 40px;
+  height: 40px;
+  margin-right: 6px;
+}
+
+.card__data {
+  align-items: flex-start;
 }
 
 .p-organizationchart-node-content .p-node-toggler .p-node-toggler-icon {
@@ -16,4 +19,28 @@
 
 .p-organizationchart-line-down {
   background-color: #bfbfbf;
+}
+
+.card__user-block {
+  display: flex;
+  flex-direction: column;
+  align-items: self-start;
+
+}
+
+.card__user-info {
+  display: flex;
+  margin: 16px 0 6px;
+}
+
+.card__projects {
+  display: flex;
+  flex-direction: column;
+  /* align-items: flex-start; */
+  margin-top: 12px;
+}
+
+.card__links {
+  display: flex;
+  flex-direction: column;
 }
