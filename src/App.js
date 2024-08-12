@@ -6,6 +6,7 @@ import Company from "./pages/Company/Company";
 import Projects from "./pages/Projects/Projects";
 import Burger from "./pages/Burger/Burger";
 import SideBar from "./components/SideBar/SideBar";
+import Profile from "./pages/Profile/Profile";
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
           <Route exact path="/company" element={<Company></Company>}></Route>
           <Route exact path="/projects" element={<Projects></Projects>}></Route>
           <Route exact path="/catalogs" element={<Catalogs></Catalogs>}></Route>
+          <Route exact path="/profile" element={<Profile></Profile>}></Route>
           <Route exact path="/burger" element={<Burger></Burger>}></Route>
         </Routes>
       </main>

@@ -20,6 +20,7 @@ function Company() {
           style={{
             width: 320,
             borderRadius: 0,
+            textAlign: "left",
           }}
         >
           <div className="card__data">
@@ -30,10 +31,23 @@ function Company() {
                 alt={node.data.name}
               ></img>
               <div className="card__user-block">
-                <Link className="card__name" to="/catalogs">
+                <Link
+                  style={{
+                    color: "#1890FF",
+                  }}
+                  className="card__name"
+                  to="/profile"
+                >
                   {node.data.name}
                 </Link>
-                <Text className="card__title">{node.data.title}</Text>
+                <Text
+                  className="card__title"
+                  style={{
+                    opacity: ".45",
+                  }}
+                >
+                  {node.data.title}
+                </Text>
               </div>
             </div>
             <Flex
@@ -70,7 +84,7 @@ function Company() {
             <Avatar.Group
               size="large"
               max={{
-                count: 3,
+                count: 4,
                 style: {
                   color: "#f56a00",
                   backgroundColor: "#fde3cf",
@@ -103,6 +117,12 @@ function Company() {
                 }}
                 icon={<AntDesignOutlined />}
               />
+              <Avatar
+                style={{
+                  backgroundColor: "#1677ff",
+                }}
+                icon={<AntDesignOutlined />}
+              />
             </Avatar.Group>
           </div>
           {node.data.projects.length !== 0 && (
@@ -112,23 +132,43 @@ function Company() {
               }}
               className="card__projects"
             >
-              <Text
+              <div>
+                <Text
+                  style={{
+                    fontSize: "14px",
+                    fontWeight: "500",
+                    marginRight: "5px",
+                  }}
+                  to={""}
+                >
+                  Проекты
+                </Text>
+                <Text
+                  style={{
+                    fontSize: "14px",
+                    fontWeight: "500",
+                    marginRight: "5px",
+                  }}
+                  to={""}
+                >
+                  {node.data.project_value}
+                </Text>
+              </div>
+              <div
                 style={{
-                  fontSize: "14px",
-                  fontWeight: "500",
-                  marginRight: "5px",
+                  marginBottom: 6,
+                  display: "flex",
+                  flexDirection: "column",
                 }}
-                to={""}
+                lassName="card__links"
               >
-                Проекты
-              </Text>
-              <div className="card__links">
                 {node.data.projects.map((project) => (
                   <Link
                     to="/projects"
                     className="card__link"
                     style={{
                       alignSelf: "flex-start",
+                      color: "#1890FF",
                     }}
                   >
                     {project.name}
@@ -142,6 +182,7 @@ function Company() {
                   fontWeight: "400",
                   fontSize: "12px",
                   lineHeight: "20px",
+                  color: "#1890FF",
                 }}
               >
                 Все проекты
@@ -163,8 +204,7 @@ function Company() {
     >
       <div className="card overflow-x-auto">
         <OrganizationChart
-        
-          value={COMPANY}          
+          value={COMPANY}
           selectionMode="multiple"
           selection={selection}
           onSelectionChange={(e) => setSelection(e.data)}

@@ -34,6 +34,11 @@ function SideBar() {
       icon: <UserOutlined />,
       label: "Каталог",
     },
+    {
+      key: "/profile",
+      icon: <UserOutlined />,
+      label: "Profile",
+    },
   ];
 
   return (

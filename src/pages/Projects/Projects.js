@@ -32,11 +32,9 @@ function Projects() {
       >
         <Flex
           gap="middle"
-        
           style={{
             margin: "24px",
-            flexWrap: 'wrap'
-            
+            flexWrap: "wrap",
           }}
         >
           {PROJECTS.map((project) => (
@@ -48,10 +46,17 @@ function Projects() {
                 width: 320,
                 height: 212,
                 borderRadius: 0,
+                overflow: "hidden",
+
               }}
             >
               <div className="card__data">
-                <Text className="card__more">{project.description}</Text>
+                <Text
+                  style={{ textOverflow: "ellipsis", maxWidth: "288px" }}
+                  className="card__more"
+                >
+                  {project.description}
+                </Text>
                 <Flex
                   gap="12px 0"
                   wrap
@@ -63,17 +68,30 @@ function Projects() {
                     <Tag color="purple">{item.name}</Tag>
                   ))}
                 </Flex>
-                <div  style={{
-                  flexDirection: 'row',
-                  width: '100%'
-                }}className="card__projects">
-                  <Link to={""}>Подчиненные проекты</Link>
+                <div
+                  style={{
+                    flexDirection: "row",
+                    width: "100%",
+                  }}
+                  className="card__projects"
+                >
+                  <Link
+                    style={{
+                      color: "#1890FF",
+                    }}
+                    to={""}
+                  >
+                    Подчиненные проекты
+                  </Link>
                   <Badge
                     className="card__badge"
                     count={project.project_value}
                     style={{
                       backgroundColor: "#FFF",
                       color: "#1890FF",
+                      fontWeight: "500",
+                      fontSize: "14px",
+                      lineHeight: "24px",
                     }}
                   ></Badge>
                 </div>
@@ -103,7 +121,7 @@ function Projects() {
                 <Avatar.Group
                   size="large"
                   max={{
-                    count: 3,
+                    count: 4,
                     style: {
                       color: "#f56a00",
                       backgroundColor: "#fde3cf",
@@ -130,6 +148,12 @@ function Projects() {
                       icon={<UserOutlined />}
                     />
                   </Tooltip>
+                  <Avatar
+                    style={{
+                      backgroundColor: "#1677ff",
+                    }}
+                    icon={<AntDesignOutlined />}
+                  />
                   <Avatar
                     style={{
                       backgroundColor: "#1677ff",

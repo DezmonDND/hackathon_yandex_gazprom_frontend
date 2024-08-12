@@ -2,6 +2,7 @@ import Avatar_4 from "../assets/images/avatar_1.png";
 import Avatar_1 from "../assets/images/avatar_2.png";
 import Avatar_2 from "../assets/images/avatar_3.png";
 import Avatar_3 from "../assets/images/avatar_4.png";
+import Profile_Avatar from "../assets/images/profile_avatar.png";
 
 export const USERS = [
   {
@@ -161,6 +162,7 @@ export const COMPANY = [
               title: "CTO",
               worker_value: "(120)",
               projects: [{ name: "Сервис InSight" }, { name: "CodEX Project" }],
+              project_value: "(8)",
             },
           },
         ],
@@ -187,6 +189,7 @@ export const COMPANY = [
               title: "CPO",
               worker_value: "(30)",
               projects: [{ name: "Сервис InSight" }, { name: "CodEX Project" }],
+              project_value: "(2)",
             },
           },
         ],
@@ -213,6 +216,7 @@ export const COMPANY = [
               title: "CIO",
               worker_value: "(50)",
               projects: [{ name: "Сервис InSight" }, { name: "CodEX Project" }],
+              project_value: "(8)",
             },
           },
         ],
@@ -220,3 +224,30 @@ export const COMPANY = [
     ],
   },
 ];
+
+export const PROFILE = {
+  avatar: Profile_Avatar,
+  name: "Алексей Иванов Александрович",
+  job: "IT Team Leader",
+  city: "г. Москва, Россия",
+  status: "На работе",
+  email: "alex.alexxx@2mail.ru",
+  phone: "+ 7 999 999 99 99",
+  telegram: "@alex12345",
+  projects: [
+    {
+      title: "Панель управления отчетами",
+      description: "Добавление панели мониторинга для ежеквартального отчета",
+      tags: [{ name: "Высокий" }, { name: "Не начато" }],
+      project_value: "+2",
+      worker_value: "(150)",
+    },
+    {
+      title: "Редизайн веб сайта",
+      description: "Добавление обновленных элементов бренда",
+      tags: [{ name: "Средний" }, { name: "В процессе" }],
+      project_value: "+2",
+      worker_value: "(60)",
+    },
+  ],
+};
