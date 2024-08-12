@@ -63,7 +63,10 @@ function Projects() {
                     <Tag color="purple">{item.name}</Tag>
                   ))}
                 </Flex>
-                <div className="card__projects">
+                <div  style={{
+                  flexDirection: 'row',
+                  width: '100%'
+                }}className="card__projects">
                   <Link to={""}>Подчиненные проекты</Link>
                   <Badge
                     className="card__badge"

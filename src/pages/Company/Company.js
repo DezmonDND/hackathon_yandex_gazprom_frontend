@@ -1,16 +1,8 @@
 import { OrganizationChart } from "primereact/organizationchart";
 import "./Company.css";
-import "./Flags.css";
 import { COMPANY } from "../../mocks/user-data";
 import { useState } from "react";
-import {
-  Avatar,
-  Badge,
-  Card,
-  Flex,
-  Layout,
-  Tooltip,
-} from "antd";
+import { Avatar, Card, Flex, Layout, Tooltip } from "antd";
 import { AntDesignOutlined, UserOutlined } from "@ant-design/icons";
 import Text from "antd/lib/typography/Text";
 import { Link } from "react-router-dom";
@@ -27,7 +19,6 @@ function Company() {
           className="card__title"
           style={{
             width: 320,
-            height: 212,
             borderRadius: 0,
           }}
         >
@@ -38,8 +29,12 @@ function Company() {
                 src={node.data.image}
                 alt={node.data.name}
               ></img>
-              <Text className="card__name">{node.data.name}</Text>
-              <Text className="card__title">{node.data.title}</Text>
+              <div className="card__user-block">
+                <Link className="card__name" to="/catalogs">
+                  {node.data.name}
+                </Link>
+                <Text className="card__title">{node.data.title}</Text>
+              </div>
             </div>
             <Flex
               gap="12px 0"
@@ -110,17 +105,49 @@ function Company() {
               />
             </Avatar.Group>
           </div>
-          <div className="card__projects">
-            <Link to={""}>Подчиненные проекты</Link>
-            <Badge
-              className="card__badge"
-              count={node.data.worker_value}
+          {node.data.projects.length !== 0 && (
+            <div
               style={{
-                backgroundColor: "#FFF",
-                color: "#1890FF",
+                alignItems: "flex-start",
               }}
-            ></Badge>
-          </div>
+              className="card__projects"
+            >
+              <Text
+                style={{
+                  fontSize: "14px",
+                  fontWeight: "500",
+                  marginRight: "5px",
+                }}
+                to={""}
+              >
+                Проекты
+              </Text>
+              <div className="card__links">
+                {node.data.projects.map((project) => (
+                  <Link
+                    to="/projects"
+                    className="card__link"
+                    style={{
+                      alignSelf: "flex-start",
+                    }}
+                  >
+                    {project.name}
+                  </Link>
+                ))}
+              </div>
+              <Link
+                to="/projects"
+                className="card__link"
+                style={{
+                  fontWeight: "400",
+                  fontSize: "12px",
+                  lineHeight: "20px",
+                }}
+              >
+                Все проекты
+              </Link>
+            </div>
+          )}
         </Card>
       );
     }
