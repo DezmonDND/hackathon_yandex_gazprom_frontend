@@ -1,11 +1,14 @@
 import {
   Avatar,
   Badge,
+  Breadcrumb,
+  Button,
   Card,
   ConfigProvider,
   Flex,
   Layout,
   Tag,
+  theme,
   Tooltip,
 } from "antd";
 import "./Projects.css";
@@ -13,8 +16,13 @@ import { Link } from "react-router-dom";
 import { AntDesignOutlined, UserOutlined } from "@ant-design/icons";
 import Text from "antd/lib/typography/Text";
 import { PROJECTS } from "../../mocks/user-data";
+import { Header } from "antd/es/layout/layout";
+import Search from "antd/es/transfer/search";
 
 function Projects() {
+  const {
+    token: { colorBgContainer },
+  } = theme.useToken();
   return (
     <ConfigProvider
       theme={{
@@ -30,6 +38,61 @@ function Projects() {
           height: "calc(100vh - 48px)",
         }}
       >
+        <Header
+          style={{
+            padding: "16px 24px",
+            background: colorBgContainer,
+            display: "flex",
+            flexDirection: "column",
+            height: 154,
+          }}
+        >
+          <Breadcrumb items={[{ title: "Проекты" }]}></Breadcrumb>
+          <Text
+            style={{
+              fontSize: 20,
+              fontWeight: 500,
+              lineHeight: "28px",
+            }}
+          >
+            Проекты
+          </Text>
+          <div
+            style={{
+              display: "flex",
+              flexDirection: "row",
+              justifyContent: "space-between",
+            }}
+          >
+            <div
+              style={{
+                width: 520,
+              }}
+            >
+              <Search
+                style={{
+                  width: 520,
+                  borderRadius: 0,
+                }}
+                // value={value}
+                // onChange={onSearch}
+              ></Search>
+            </div>
+            <Button
+              // onClick={handleAdd}
+              type="primary"
+              style={{
+                backgroundColor: "#fff",
+                color: "#000",
+                border: "1px solid #D9D9D9",
+                boxShadow: "none",
+                borderRadius: 0,
+              }}
+            >
+              + Добавить проект
+            </Button>
+          </div>
+        </Header>
         <Flex
           gap="middle"
           style={{
@@ -47,7 +110,6 @@ function Projects() {
                 height: 212,
                 borderRadius: 0,
                 overflow: "hidden",
-
               }}
             >
               <div className="card__data">

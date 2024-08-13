@@ -7,7 +7,7 @@ import { AntDesignOutlined, UserOutlined } from "@ant-design/icons";
 import Text from "antd/lib/typography/Text";
 import { Link } from "react-router-dom";
 
-function Company() {
+function Company(props) {
   const [selection, setSelection] = useState([]);
 
   const nodeTemplate = (node) => {

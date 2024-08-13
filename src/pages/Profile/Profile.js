@@ -16,6 +16,7 @@ import { PROFILE } from "../../mocks/user-data";
 import Text from "antd/lib/typography/Text";
 import { AntDesignOutlined, UserOutlined } from "@ant-design/icons";
 import { Link } from "react-router-dom";
+import Company from "../Company/Company";
 
 function Profile() {
   const [profile, setProfile] = useState(PROFILE);
@@ -211,8 +212,55 @@ function Profile() {
             gap: 24,
           }}
         >
-          <Card title="Общая информация" style={{ width: 792 }}></Card>
-          <Card title="Организация" style={{ width: 792 }}></Card>
+          <Card title="Общая информация" style={{ width: 792 }}>
+            <div
+              style={{
+                display: "flex",
+              }}
+            >
+              <div
+                style={{
+                  display: "flex",
+                  flexDirection: "column",
+                  maxWidth: 149,
+                  marginRight: 16,
+                  gap: 16,
+                  opacity: 0.45,
+                }}
+              >
+                <Text>Департамент:</Text>
+                <Text>Отдел:</Text>
+                <Text>Часовой пояс:</Text>
+                <Text>О себе:</Text>
+                <Text>Следующий отпуск:</Text>
+                <Text>Навыки:</Text>
+                <Text>Тип найма:</Text>
+              </div>
+              <div
+                style={{
+                  display: "flex",
+                  flexDirection: "column",
+                  gap: 16,
+                }}
+              >
+                <Text>IT</Text>
+                <Text>Отдел мобильной разработки</Text>
+                <Text>UTC+3</Text>
+                <Text>С 2022 года работаю в N</Text>
+                <Text>22.06.2025 — 09.07.2025</Text>
+                <div>
+                  <Tag>Python</Tag>
+                  <Tag>Python</Tag>
+                  <Tag>Python</Tag>
+                </div>
+                <Text>Штатный</Text>
+              </div>
+            </div>
+          </Card>
+          <Card
+            title="Организация"
+            style={{ width: 792, overflow: "auto" }}
+          ></Card>
         </div>
       </Flex>
     </Layout>
