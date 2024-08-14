@@ -251,3 +251,47 @@ export const PROFILE = {
     },
   ],
 };
+
+export const PROFILE_COMPANY = [
+  {
+    expanded: true,
+    type: "person",
+    data: {
+      department: "Tech Nexus",
+      image: Avatar_1,
+      name: "Александр Александров",
+      title: "CEO",
+      worker_value: "(200)",
+      projects: [],
+    },
+    children: [
+      {
+        expanded: true,
+        type: "person",
+        data: {
+          department: "Департамент разработки",
+          image: Avatar_2,
+          name: "Игорь Дроздов",
+          title: "CTO",
+          worker_value: "(120)",
+          projects: [],
+        },
+        children: [
+          {
+            expanded: true,
+            type: "person",
+            data: {
+              department: "Департамент разработки",
+              image: Avatar_2,
+              name: "Игорь Дроздов",
+              title: "CTO",
+              worker_value: "(120)",
+              projects: [{ name: "Сервис InSight" }, { name: "CodEX Project" }],
+              project_value: "(8)",
+            },
+          },
+        ],
+      },
+    ],
+  },
+];

@@ -1,5 +1,15 @@
 /* eslint-disable */
-import { Button, Form, Input, Layout, Switch, Table, Tag, theme } from "antd";
+import {
+  Button,
+  Form,
+  Input,
+  Layout,
+  Modal,
+  Switch,
+  Table,
+  Tag,
+  theme,
+} from "antd";
 import { USERS } from "../../mocks/user-data";
 import { Content, Header } from "antd/es/layout/layout";
 import { ReloadOutlined, SettingOutlined } from "@ant-design/icons";
@@ -18,6 +28,18 @@ function Catalogs() {
   const handleChange = (pagination, filters) => {
     setFilteredInfo(filters);
   };
+
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const showModal = () => {
+    setIsModalOpen(true);
+  };
+  const handleOk = () => {
+    setIsModalOpen(false);
+  };
+  const handleCancel = () => {
+    setIsModalOpen(false);
+  };
+
   const defaultColumns = [
     {
       title: "Имя",
@@ -341,7 +363,7 @@ function Catalogs() {
           <div className="header__buttons">
             <Statistic title="Каталог" value={USERS.length}></Statistic>
             <Button
-              // onClick={handleAdd}
+              onClick={showModal}
               type="primary"
               style={{
                 marginBottom: 16,
@@ -349,6 +371,13 @@ function Catalogs() {
             >
               + Добавить сотрудника
             </Button>
+            <Modal
+              title="Добавить сотрудника"
+              centered
+              open={isModalOpen}
+              onOk={handleOk}
+              onCancel={handleCancel}
+            ></Modal>
           </div>
         </Header>
         <div className="filters">

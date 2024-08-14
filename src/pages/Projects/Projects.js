@@ -6,7 +6,9 @@ import {
   Card,
   ConfigProvider,
   Flex,
+  Input,
   Layout,
+  Modal,
   Tag,
   theme,
   Tooltip,
@@ -17,12 +19,38 @@ import { AntDesignOutlined, UserOutlined } from "@ant-design/icons";
 import Text from "antd/lib/typography/Text";
 import { PROJECTS } from "../../mocks/user-data";
 import { Header } from "antd/es/layout/layout";
-import Search from "antd/es/transfer/search";
+import { useState } from "react";
 
 function Projects() {
+  const [dataSource, setDataSource] = useState(PROJECTS);
+  const [value, setValue] = useState("");
+  const { Search } = Input;
+
   const {
     token: { colorBgContainer },
   } = theme.useToken();
+
+  const onSearch = (e) => {
+    const currValue = e.target.value;
+    setValue(currValue);
+
+    const filteredData = PROJECTS.filter((entry) =>
+      entry.title.toLowerCase().includes(currValue)
+    );
+    setDataSource(filteredData);
+  };
+
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const showModal = () => {
+    setIsModalOpen(true);
+  };
+  const handleOk = () => {
+    setIsModalOpen(false);
+  };
+  const handleCancel = () => {
+    setIsModalOpen(false);
+  };
+
   return (
     <ConfigProvider
       theme={{
@@ -67,6 +95,7 @@ function Projects() {
             <div
               style={{
                 width: 520,
+                display: "flex",
               }}
             >
               <Search
@@ -74,12 +103,14 @@ function Projects() {
                   width: 520,
                   borderRadius: 0,
                 }}
-                // value={value}
-                // onChange={onSearch}
+                value={value}
+                onChange={onSearch}
+                allowClear
+                enterButton="Поиск"
               ></Search>
             </div>
             <Button
-              // onClick={handleAdd}
+              onClick={showModal}
               type="primary"
               style={{
                 backgroundColor: "#fff",
@@ -91,6 +122,13 @@ function Projects() {
             >
               + Добавить проект
             </Button>
+            <Modal
+              title="Добавить проект"
+              centered
+              open={isModalOpen}
+              onOk={handleOk}
+              onCancel={handleCancel}
+            ></Modal>
           </div>
         </Header>
         <Flex
@@ -100,7 +138,7 @@ function Projects() {
             flexWrap: "wrap",
           }}
         >
-          {PROJECTS.map((project) => (
+          {dataSource.map((project) => (
             <Card
               title={project.title}
               size="small"

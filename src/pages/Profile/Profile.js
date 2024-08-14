@@ -12,14 +12,20 @@ import {
 } from "antd";
 import "./Profile.css";
 import { useState } from "react";
-import { PROFILE } from "../../mocks/user-data";
+import { PROFILE, PROFILE_COMPANY } from "../../mocks/user-data";
 import Text from "antd/lib/typography/Text";
 import { AntDesignOutlined, UserOutlined } from "@ant-design/icons";
 import { Link } from "react-router-dom";
-import Company from "../Company/Company";
+import { OrganizationChart } from "primereact/organizationchart";
+import { nodeTemplate } from "../../components/Tree/Tree";
+import PhoneIcon from "../../assets/images/phone_icon.svg";
+import TelegramIcon from "../../assets/images/telegram_icon.svg";
+import MailIcon from "../../assets/images/mail_icon.svg";
+import StatusIcon from "../../assets/images/status_icon.png";
 
 function Profile() {
   const [profile, setProfile] = useState(PROFILE);
+  const [selection, setSelection] = useState([]);
 
   return (
     <Layout
@@ -43,7 +49,12 @@ function Profile() {
           }}
         >
           <Card
-            style={{ width: 368, display: "flex", flexDirection: "column" }}
+            style={{
+              width: 368,
+              display: "flex",
+              flexDirection: "column",
+              borderRadius: 0,
+            }}
           >
             <div style={{ display: "flex", flexDirection: "column" }}>
               <img
@@ -52,19 +63,126 @@ function Profile() {
                 style={{
                   width: 125,
                   height: 125,
+                  margin: "auto",
                 }}
               ></img>
-              <Text>{profile.name}</Text>
+              <Text
+                style={{
+                  margin: "24px 0",
+                  fontSize: 20,
+                  fontWeight: 500,
+                  lineHeight: "28px",
+                  textOverflow: "ellipsis",
+                }}
+              >
+                {profile.name}
+              </Text>
               <Text>{profile.job}</Text>
               <Text>{profile.city}</Text>
-              <Text>{profile.status}</Text>
+              <div
+                style={{
+                  display: "flex",
+                  alignItems: "center",
+                  marginTop: 24,
+                }}
+              >
+                <img
+                  src={StatusIcon}
+                  alt="Icon"
+                  style={{
+                    width: 12,
+                    height: 12,
+                  }}
+                ></img>
+                <Text
+                  style={{
+                    marginLeft: 10,
+                  }}
+                >
+                  {profile.status}
+                </Text>
+              </div>
               <Divider></Divider>
-              <Text>{profile.email}</Text>
-              <Text>{profile.phone}</Text>
-              <Text>{profile.telegram}</Text>
+              <div
+                style={{
+                  display: "flex",
+                  flexDirection: "column",
+                  gap: 22,
+                }}
+              >
+                <div
+                  style={{
+                    display: "flex",
+                    alignItems: "center",
+                  }}
+                >
+                  <img
+                    src={MailIcon}
+                    alt="Icon"
+                    style={{
+                      width: 16,
+                      height: 16,
+                    }}
+                  ></img>
+                  <Text
+                    style={{
+                      color: "#1890FF",
+                      marginLeft: 16,
+                    }}
+                  >
+                    {profile.email}
+                  </Text>
+                </div>
+                <div
+                  style={{
+                    display: "flex",
+                    alignItems: "center",
+                  }}
+                >
+                  <img
+                    src={PhoneIcon}
+                    alt="Icon"
+                    style={{
+                      width: 16,
+                      height: 16,
+                    }}
+                  ></img>
+                  <Text
+                    style={{
+                      color: "#1890FF",
+                      marginLeft: 16,
+                    }}
+                  >
+                    {profile.phone}
+                  </Text>
+                </div>
+                <div
+                  style={{
+                    display: "flex",
+                    alignItems: "center",
+                  }}
+                >
+                  <img
+                    src={TelegramIcon}
+                    alt="Icon"
+                    style={{
+                      width: 16,
+                      height: 16,
+                    }}
+                  ></img>
+                  <Text
+                    style={{
+                      color: "#1890FF",
+                      marginLeft: 16,
+                    }}
+                  >
+                    {profile.telegram}
+                  </Text>
+                </div>
+              </div>
             </div>
           </Card>
-          <Card title="Проекты" style={{ width: 368 }}>
+          <Card title="Проекты" style={{ width: 368, borderRadius: 0 }}>
             <ConfigProvider>
               <Flex
                 gap="middle"
@@ -212,7 +330,10 @@ function Profile() {
             gap: 24,
           }}
         >
-          <Card title="Общая информация" style={{ width: 792 }}>
+          <Card
+            title="Общая информация"
+            style={{ width: 792, borderRadius: 0 }}
+          >
             <div
               style={{
                 display: "flex",
@@ -259,8 +380,16 @@ function Profile() {
           </Card>
           <Card
             title="Организация"
-            style={{ width: 792, overflow: "auto" }}
-          ></Card>
+            style={{ width: 792, overflow: "auto", borderRadius: 0 }}
+          >
+            <OrganizationChart
+              value={PROFILE_COMPANY}
+              selectionMode="multiple"
+              selection={selection}
+              onSelectionChange={(e) => setSelection(e.data)}
+              nodeTemplate={nodeTemplate}
+            ></OrganizationChart>
+          </Card>
         </div>
       </Flex>
     </Layout>
