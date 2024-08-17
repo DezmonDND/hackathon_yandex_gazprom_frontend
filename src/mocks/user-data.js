@@ -1,3 +1,4 @@
+import { AntDesignOutlined, UserOutlined } from "@ant-design/icons";
 import Avatar_4 from "../assets/images/avatar_1.png";
 import Avatar_1 from "../assets/images/avatar_2.png";
 import Avatar_2 from "../assets/images/avatar_3.png";
@@ -68,6 +69,35 @@ export const PROJECTS = [
     tags: [{ name: "Высокий" }, { name: "Выполнено" }, { name: "Аутсорс" }],
     project_value: "+2",
     worker_value: "(52)",
+    avatars: [
+      {
+        name: "User 1",
+        image:
+          "https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png",
+        color: "",
+      },
+      {
+        name: "User 2",
+        image: <UserOutlined></UserOutlined>,
+        color: "#f56a00",
+      },
+      {
+        name: "User 3",
+        image: <AntDesignOutlined></AntDesignOutlined>,
+        color: "#73D13D",
+      },
+      {
+        name: "User 4",
+        image: <UserOutlined></UserOutlined>,
+        color: "#FF4D4F",
+      },
+      {
+        name: "User 5",
+        image:
+          "https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png",
+        color: "#FF4D4F",
+      },
+    ],
   },
   {
     title: "Панель управления отчетами",
@@ -75,6 +105,35 @@ export const PROJECTS = [
     tags: [{ name: "Высокий" }, { name: "Не начато" }],
     project_value: "+2",
     worker_value: "(150)",
+    avatars: [
+      {
+        name: "User 1",
+        image:
+          "https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png",
+        color: "",
+      },
+      {
+        name: "User 2",
+        image: <UserOutlined></UserOutlined>,
+        color: "#f56a00",
+      },
+      {
+        name: "User 3",
+        image: <AntDesignOutlined></AntDesignOutlined>,
+        color: "#73D13D",
+      },
+      {
+        name: "User 4",
+        image: <UserOutlined></UserOutlined>,
+        color: "#FF4D4F",
+      },
+      {
+        name: "User 5",
+        image:
+          "https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png",
+        color: "#FF4D4F",
+      },
+    ],
   },
   {
     title: "Редизайн веб сайта",
@@ -82,6 +141,35 @@ export const PROJECTS = [
     tags: [{ name: "Средний" }, { name: "В процессе" }],
     project_value: "+2",
     worker_value: "(60)",
+    avatars: [
+      {
+        name: "User 1",
+        image:
+          "https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png",
+        color: "",
+      },
+      {
+        name: "User 2",
+        image: <UserOutlined></UserOutlined>,
+        color: "#f56a00",
+      },
+      {
+        name: "User 3",
+        image: <AntDesignOutlined></AntDesignOutlined>,
+        color: "#73D13D",
+      },
+      {
+        name: "User 4",
+        image: <UserOutlined></UserOutlined>,
+        color: "#FF4D4F",
+      },
+      {
+        name: "User 5",
+        image:
+          "https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png",
+        color: "#FF4D4F",
+      },
+    ],
   },
   {
     title: "Оптимизация отображения в Space",
@@ -89,6 +177,35 @@ export const PROJECTS = [
     tags: [{ name: "Средний" }, { name: "В процессе" }],
     project_value: "+2",
     worker_value: "(20)",
+    avatars: [
+      {
+        name: "User 1",
+        image:
+          "https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png",
+        color: "",
+      },
+      {
+        name: "User 2",
+        image: <UserOutlined></UserOutlined>,
+        color: "#f56a00",
+      },
+      {
+        name: "User 3",
+        image: <AntDesignOutlined></AntDesignOutlined>,
+        color: "#73D13D",
+      },
+      {
+        name: "User 4",
+        image: <UserOutlined></UserOutlined>,
+        color: "#FF4D4F",
+      },
+      {
+        name: "User 5",
+        image:
+          "https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png",
+        color: "#FF4D4F",
+      },
+    ],
   },
   {
     title: "Оптимизация отображения в Space",
@@ -96,6 +213,35 @@ export const PROJECTS = [
     tags: [{ name: "Средний" }, { name: "В процессе" }],
     project_value: "+2",
     worker_value: "(20)",
+    avatars: [
+      {
+        name: "User 1",
+        image:
+          "https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png",
+        color: "",
+      },
+      {
+        name: "User 2",
+        image: <UserOutlined></UserOutlined>,
+        color: "#f56a00",
+      },
+      {
+        name: "User 3",
+        image: <AntDesignOutlined></AntDesignOutlined>,
+        color: "#73D13D",
+      },
+      {
+        name: "User 4",
+        image: <UserOutlined></UserOutlined>,
+        color: "#FF4D4F",
+      },
+      {
+        name: "User 5",
+        image:
+          "https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png",
+        color: "#FF4D4F",
+      },
+    ],
   },
   {
     title: "Оптимизация отображения в Space",
@@ -103,6 +249,35 @@ export const PROJECTS = [
     tags: [{ name: "Средний" }, { name: "В процессе" }],
     project_value: "+2",
     worker_value: "(20)",
+    avatars: [
+      {
+        name: "User 1",
+        image:
+          "https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png",
+        color: "",
+      },
+      {
+        name: "User 2",
+        image: <UserOutlined></UserOutlined>,
+        color: "#f56a00",
+      },
+      {
+        name: "User 3",
+        image: <AntDesignOutlined></AntDesignOutlined>,
+        color: "#73D13D",
+      },
+      {
+        name: "User 4",
+        image: <UserOutlined></UserOutlined>,
+        color: "#FF4D4F",
+      },
+      {
+        name: "User 5",
+        image:
+          "https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png",
+        color: "#FF4D4F",
+      },
+    ],
   },
   {
     title: "Оптимизация отображения в Space",
@@ -110,6 +285,35 @@ export const PROJECTS = [
     tags: [{ name: "Средний" }, { name: "В процессе" }],
     project_value: "+2",
     worker_value: "(20)",
+    avatars: [
+      {
+        name: "User 1",
+        image:
+          "https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png",
+        color: "",
+      },
+      {
+        name: "User 2",
+        image: <UserOutlined></UserOutlined>,
+        color: "#f56a00",
+      },
+      {
+        name: "User 3",
+        image: <AntDesignOutlined></AntDesignOutlined>,
+        color: "#73D13D",
+      },
+      {
+        name: "User 4",
+        image: <UserOutlined></UserOutlined>,
+        color: "#FF4D4F",
+      },
+      {
+        name: "User 5",
+        image:
+          "https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png",
+        color: "#FF4D4F",
+      },
+    ],
   },
   {
     title: "Оптимизация отображения в Space",
@@ -117,6 +321,35 @@ export const PROJECTS = [
     tags: [{ name: "Средний" }, { name: "В процессе" }],
     project_value: "+2",
     worker_value: "(20)",
+    avatars: [
+      {
+        name: "User 1",
+        image:
+          "https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png",
+        color: "",
+      },
+      {
+        name: "User 2",
+        image: <UserOutlined></UserOutlined>,
+        color: "#f56a00",
+      },
+      {
+        name: "User 3",
+        image: <AntDesignOutlined></AntDesignOutlined>,
+        color: "#73D13D",
+      },
+      {
+        name: "User 4",
+        image: <UserOutlined></UserOutlined>,
+        color: "#FF4D4F",
+      },
+      {
+        name: "User 5",
+        image:
+          "https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png",
+        color: "#FF4D4F",
+      },
+    ],
   },
   {
     title: "Оптимизация отображения в Space",
@@ -124,6 +357,35 @@ export const PROJECTS = [
     tags: [{ name: "Средний" }, { name: "В процессе" }],
     project_value: "+2",
     worker_value: "(20)",
+    avatars: [
+      {
+        name: "User 1",
+        image:
+          "https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png",
+        color: "",
+      },
+      {
+        name: "User 2",
+        image: <UserOutlined></UserOutlined>,
+        color: "#f56a00",
+      },
+      {
+        name: "User 3",
+        image: <AntDesignOutlined></AntDesignOutlined>,
+        color: "#73D13D",
+      },
+      {
+        name: "User 4",
+        image: <UserOutlined></UserOutlined>,
+        color: "#FF4D4F",
+      },
+      {
+        name: "User 5",
+        image:
+          "https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png",
+        color: "#FF4D4F",
+      },
+    ],
   },
 ];
 

@@ -8,14 +8,13 @@ import {
   Flex,
   Input,
   Layout,
-  Modal,
   Tag,
   theme,
   Tooltip,
 } from "antd";
 import "./Projects.css";
 import { Link } from "react-router-dom";
-import { AntDesignOutlined, UserOutlined } from "@ant-design/icons";
+import { UsergroupAddOutlined } from "@ant-design/icons";
 import Text from "antd/lib/typography/Text";
 import { PROJECTS } from "../../mocks/user-data";
 import { Header } from "antd/es/layout/layout";
@@ -23,6 +22,7 @@ import { useState } from "react";
 
 function Projects() {
   const [dataSource, setDataSource] = useState(PROJECTS);
+  const [count, setCount] = useState(2);
   const [value, setValue] = useState("");
   const { Search } = Input;
 
@@ -40,15 +40,19 @@ function Projects() {
     setDataSource(filteredData);
   };
 
-  const [isModalOpen, setIsModalOpen] = useState(false);
-  const showModal = () => {
-    setIsModalOpen(true);
-  };
-  const handleOk = () => {
-    setIsModalOpen(false);
-  };
-  const handleCancel = () => {
-    setIsModalOpen(false);
+  const handleAddProject = (values) => {
+    const newData = {
+      key: count,
+      title: values.title || "Название проекта",
+      description: values.description || "Краткое описание проекта ",
+      project_value: values.project_value || 0,
+      worker_value: values.worker_value,
+      recruitment: values.recruitment || "Штатный",
+      tags: values.tags || [],
+      avatars: values.avatars || [],
+    };
+    setDataSource([...dataSource, newData]);
+    setCount(count + 1);
   };
 
   return (
@@ -110,7 +114,7 @@ function Projects() {
               ></Search>
             </div>
             <Button
-              onClick={showModal}
+              onClick={handleAddProject}
               type="primary"
               style={{
                 backgroundColor: "#fff",
@@ -122,13 +126,6 @@ function Projects() {
             >
               + Добавить проект
             </Button>
-            <Modal
-              title="Добавить проект"
-              centered
-              open={isModalOpen}
-              onOk={handleOk}
-              onCancel={handleCancel}
-            ></Modal>
           </div>
         </Header>
         <Flex
@@ -136,6 +133,7 @@ function Projects() {
           style={{
             margin: "24px",
             flexWrap: "wrap",
+            overflowY: "auto",
           }}
         >
           {dataSource.map((project) => (
@@ -164,37 +162,93 @@ function Projects() {
                     margin: "12px 0 4px",
                   }}
                 >
-                  {project.tags.map((item) => (
-                    <Tag color="purple">{item.name}</Tag>
-                  ))}
+                  {project.tags.length > 0 ? (
+                    project.tags.map((text) => {
+                      let color = "";
+                      if (text.name === "Высокий") {
+                        color = "purple";
+                      } else if (text.name === "Выполнено") {
+                        color = "green";
+                      } else if (text.name === "Аутсорс") {
+                        color = "orange";
+                      } else if (text.name === "Средний") {
+                        color = "volcano";
+                      } else if (text.name === "В процессе") {
+                        color = "blue";
+                      } else if (text.name === "Не начато") {
+                        color = "gold";
+                      }
+                      return <Tag color={color}>{text.name}</Tag>;
+                    })
+                  ) : (
+                    <Button
+                      style={{
+                        border: "1px dashed #E8E7E7",
+                        width: 77,
+                        height: 22,
+                        borderRadius: 2,
+                      }}
+                    >
+                      + New tag
+                    </Button>
+                  )}
                 </Flex>
-                <div
-                  style={{
-                    flexDirection: "row",
-                    width: "100%",
-                  }}
-                  className="card__projects"
-                >
-                  <Link
+                {project.project_value !== 0 ? (
+                  <div
                     style={{
-                      color: "#1890FF",
+                      flexDirection: "row",
+                      width: "100%",
                     }}
-                    to={""}
+                    className="card__projects"
                   >
-                    Подчиненные проекты
-                  </Link>
-                  <Badge
-                    className="card__badge"
-                    count={project.project_value}
+                    <Link
+                      style={{
+                        color: "#1890FF",
+                      }}
+                      to={""}
+                    >
+                      Подчиненные проекты
+                    </Link>
+                    <Badge
+                      className="card__badge"
+                      count={project.project_value}
+                      style={{
+                        backgroundColor: "#FFF",
+                        color: "#1890FF",
+                        fontWeight: "500",
+                        fontSize: "14px",
+                        lineHeight: "24px",
+                      }}
+                    ></Badge>
+                  </div>
+                ) : (
+                  <div
                     style={{
-                      backgroundColor: "#FFF",
-                      color: "#1890FF",
-                      fontWeight: "500",
-                      fontSize: "14px",
-                      lineHeight: "24px",
+                      flexDirection: "row",
+                      width: "100%",
                     }}
-                  ></Badge>
-                </div>
+                    className="card__projects"
+                  >
+                    <Link
+                      style={{
+                        color: "#1890FF",
+                        height: 22,
+                      }}
+                      to={""}
+                    ></Link>
+                    <Badge
+                      className="card__badge"
+                      count={project.project_value}
+                      style={{
+                        backgroundColor: "#FFF",
+                        color: "#1890FF",
+                        fontWeight: "500",
+                        fontSize: "14px",
+                        lineHeight: "24px",
+                      }}
+                    ></Badge>
+                  </div>
+                )}
                 <div
                   style={{
                     margin: "6px 0 4px",
@@ -232,34 +286,28 @@ function Projects() {
                     },
                   }}
                 >
-                  <Avatar src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png" />
-                  <Avatar
-                    style={{
-                      backgroundColor: "#f56a00",
-                    }}
-                  >
-                    K
-                  </Avatar>
-                  <Tooltip title="Ant User" placement="top">
-                    <Avatar
+                  {project.avatars.length > 0 ? (
+                    project.avatars.map((avatar) => (
+                      <Tooltip title={avatar.name} placement="top">
+                        <Avatar
+                          style={{
+                            backgroundColor: avatar.color,
+                          }}
+                          src={avatar.image}
+                        />
+                      </Tooltip>
+                    ))
+                  ) : (
+                    <Button
+                      icon={<UsergroupAddOutlined></UsergroupAddOutlined>}
                       style={{
-                        backgroundColor: "#87d068",
+                        border: "1px dashed #E8E7E7",
+                        borderRadius: "50%",
+                        width: 40,
+                        height: 40,
                       }}
-                      icon={<UserOutlined />}
-                    />
-                  </Tooltip>
-                  <Avatar
-                    style={{
-                      backgroundColor: "#1677ff",
-                    }}
-                    icon={<AntDesignOutlined />}
-                  />
-                  <Avatar
-                    style={{
-                      backgroundColor: "#1677ff",
-                    }}
-                    icon={<AntDesignOutlined />}
-                  />
+                    ></Button>
+                  )}
                 </Avatar.Group>
               </div>
             </Card>
