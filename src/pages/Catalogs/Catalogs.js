@@ -1,10 +1,14 @@
 /* eslint-disable */
 import {
   Button,
+  Checkbox,
+  Col,
+  Divider,
   Form,
   Input,
   Layout,
   Modal,
+  Select,
   Switch,
   Table,
   Tag,
@@ -20,6 +24,8 @@ import "./Catalogs.css";
 
 function Catalogs() {
   const [dataSource, setDataSource] = useState(USERS);
+  const [form] = Form.useForm();
+  const [fromValues, setFormValues] = useState();
   const {
     token: { colorBgContainer },
   } = theme.useToken();
@@ -33,9 +39,7 @@ function Catalogs() {
   const showModal = () => {
     setIsModalOpen(true);
   };
-  const handleOk = () => {
-    setIsModalOpen(false);
-  };
+
   const handleCancel = () => {
     setIsModalOpen(false);
   };
@@ -46,7 +50,6 @@ function Catalogs() {
       dataIndex: "name",
       key: "name",
       width: 312,
-      editable: true,
       sorter: (a, b) => a.name.length - b.name.length,
       render: (text) => <a>{text}</a>,
     },
@@ -55,7 +58,6 @@ function Catalogs() {
       dataIndex: "job",
       key: "job",
       width: 145,
-      editable: true,
       filters: [
         {
           text: "Front-end",
@@ -82,7 +84,6 @@ function Catalogs() {
       dataIndex: "section",
       key: "section",
       width: 188,
-      editable: true,
       filters: [
         {
           text: "Веб-разработка",
@@ -147,34 +148,34 @@ function Catalogs() {
       dataIndex: "skills",
       key: "skills",
       width: 200,
-      editable: true,
       render: (_, { skills }) => (
         <>
-          {skills.map((skill) => {
-            let color = skill.length > 5 ? "geekblue" : "green";
-            if (skill === "volcano") {
-              color = "volcano";
-            } else if (skill === "red") {
-              color = "red";
-            } else if (skill === "green") {
-              color = "green";
-            } else if (skill === "geekblue") {
-              color = "geekblue";
-            } else if (skill === "gold") {
-              color = "gold";
-            } else if (skill === "cyan") {
-              color = "cyan";
-            } else if (skill === "magenta") {
-              color = "magenta";
-            } else if (skill === "purple") {
-              color = "purple";
-            }
-            return (
-              <Tag color={color} key={skill}>
-                {skill.toUpperCase()}
-              </Tag>
-            );
-          })}
+          {skills.length !== 0 &&
+            skills.map((skill) => {
+              let color = skill.length > 5 ? "geekblue" : "green";
+              if (skill === "volcano") {
+                color = "volcano";
+              } else if (skill === "red") {
+                color = "red";
+              } else if (skill === "green") {
+                color = "green";
+              } else if (skill === "geekblue") {
+                color = "geekblue";
+              } else if (skill === "gold") {
+                color = "gold";
+              } else if (skill === "cyan") {
+                color = "cyan";
+              } else if (skill === "magenta") {
+                color = "magenta";
+              } else if (skill === "purple") {
+                color = "purple";
+              }
+              return (
+                <Tag color={color} key={skill}>
+                  {skill.toUpperCase()}
+                </Tag>
+              );
+            })}
         </>
       ),
       filters: [
@@ -287,21 +288,21 @@ function Catalogs() {
     return <td {...restProps}>{childNode}</td>;
   };
 
-  // const [count, setCount] = useState(2);
+  const [count, setCount] = useState(2);
 
-  // const handleAdd = () => {
-  //   const newData = {
-  //     key: count,
-  //     name: "1",
-  //     job: "",
-  //     section: "",
-  //     status: "",
-  //     recruitment: "",
-  //     skills: [],
-  //   };
-  //   setDataSource([...dataSource, newData]);
-  //   setCount(count + 1);
-  // };
+  const handleAdd = (values) => {
+    const newData = {
+      key: count,
+      name: values.name,
+      job: values.job,
+      section: values.section,
+      status: values.status || 'На работе',
+      recruitment: values.recruitment || 'Штатный',
+      skills: values.skills || ['gold'],
+    };
+    setDataSource([...dataSource, newData]);
+    setCount(count + 1);
+  };
 
   const handleSave = (row) => {
     const newData = [...dataSource];
@@ -313,12 +314,14 @@ function Catalogs() {
     });
     setDataSource(newData);
   };
+
   const components = {
     body: {
       row: EditableRow,
       cell: EditableCell,
     },
   };
+
   const columns = defaultColumns.map((col) => {
     if (!col.editable) {
       return col;
@@ -345,6 +348,12 @@ function Catalogs() {
       entry.name.toLowerCase().includes(currValue)
     );
     setDataSource(filteredData);
+  };
+
+  const onSubmit = (values) => {
+    setFormValues(values);
+    setIsModalOpen(false);
+    handleAdd(values);
   };
 
   return (
@@ -375,9 +384,62 @@ function Catalogs() {
               title="Добавить сотрудника"
               centered
               open={isModalOpen}
-              onOk={handleOk}
+              okText="Добавить"
+              okButtonProps={{
+                htmlType: "submit",
+              }}
               onCancel={handleCancel}
-            ></Modal>
+              modalRender={(dom) => (
+                <Form
+                  layout="vertical"
+                  form={form}
+                  name="form_in_modal"
+                  initialValues={{
+                    modifier: "public",
+                  }}
+                  clearOnDestroy
+                  onFinish={(values) => onSubmit(values)}
+                >
+                  {dom}
+                </Form>
+              )}
+            >
+              <Divider></Divider>
+              <Form.Item label="ФИО" name="name" layout="vertical">
+                <Input placeholder="Константинопольский Константин Константинович"></Input>
+              </Form.Item>
+              <Form.Item label="Почта" name="email" layout="vertical">
+                <Input placeholder="example@gmail.com"></Input>
+              </Form.Item>
+              <Form.Item name="section" label="Отдел">
+                <Select
+                  showSearch
+                  placeholder="Введите название или выберите из списка"
+                >
+                  <Option value="Веб-разработка">Веб-разработка</Option>
+                  <Option value="Мобильная разработка">
+                    Мобильная разработка
+                  </Option>
+                  <Option value="Аналитика">Аналитика</Option>
+                  <Option value="Дизайн">Дизайн</Option>
+                </Select>
+              </Form.Item>
+              <Form.Item name="job" label="Должность">
+                <Select
+                  showSearch
+                  placeholder="Введите название или выберите из списка"
+                >
+                  <Option value="Front-end">Front-end</Option>
+                  <Option value="Back-end">Back-end</Option>
+                  <Option value="Аналитик">Аналитик</Option>
+                  <Option value="Дизайнер">Дизайнер</Option>
+                </Select>
+              </Form.Item>
+              <Form.Item name="invite" valuePropName="checked">
+                <Checkbox>Пригласить сотрудника в ГазпромID</Checkbox>
+              </Form.Item>
+              <Divider></Divider>
+            </Modal>
           </div>
         </Header>
         <div className="filters">
