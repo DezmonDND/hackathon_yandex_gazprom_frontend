@@ -2,19 +2,27 @@
 import {
   Avatar,
   Badge,
+  Breadcrumb,
+  Button,
   Card,
   ConfigProvider,
   Divider,
   Flex,
   Layout,
   Tag,
+  theme,
   Tooltip,
 } from "antd";
 import "./Profile.css";
 import { useState } from "react";
 import { PROFILE, PROFILE_COMPANY } from "../../mocks/user-data";
 import Text from "antd/lib/typography/Text";
-import { AntDesignOutlined, UserOutlined } from "@ant-design/icons";
+import {
+  AntDesignOutlined,
+  ArrowLeftOutlined,
+  FormOutlined,
+  UserOutlined,
+} from "@ant-design/icons";
 import { Link } from "react-router-dom";
 import { OrganizationChart } from "primereact/organizationchart";
 import { nodeTemplate } from "../../components/Tree/Tree";
@@ -22,10 +30,15 @@ import PhoneIcon from "../../assets/images/phone_icon.svg";
 import TelegramIcon from "../../assets/images/telegram_icon.svg";
 import MailIcon from "../../assets/images/mail_icon.svg";
 import StatusIcon from "../../assets/images/status_icon.png";
+import { Header } from "antd/es/layout/layout";
 
 function Profile() {
   const [profile, setProfile] = useState(PROFILE);
   const [selection, setSelection] = useState([]);
+
+  const {
+    token: { colorBgContainer },
+  } = theme.useToken();
 
   return (
     <Layout
@@ -34,6 +47,64 @@ function Profile() {
         overflowY: "scroll",
       }}
     >
+      <Header
+        style={{
+          padding: "16px 24px",
+          background: colorBgContainer,
+          display: "flex",
+          flexDirection: "column",
+          height: 102,
+        }}
+      >
+        <Breadcrumb
+          items={[
+            { title: <a href="/catalogs">Каталог</a> },
+            { title: <a href="/profile">Профиль сотрудника</a> },
+          ]}
+        ></Breadcrumb>
+        <Flex
+          style={{
+            justifyContent: "space-between",
+          }}
+        >
+          <Flex
+            style={{
+              alignItems: "center",
+            }}
+          >
+            <ArrowLeftOutlined
+              style={{
+                width: 16,
+                height: 16,
+              }}
+            />
+            <a
+              href="/catalogs"
+              style={{
+                fontSize: 20,
+                fontWeight: 500,
+                marginLeft: 5,
+                color: "#000",
+              }}
+            >
+              Профиль сотрудника
+            </a>
+          </Flex>
+
+          <Button
+            icon={<FormOutlined></FormOutlined>}
+            type="link"
+            href='/edit-profile'
+            style={{
+              borderRadius: 0,
+              backgroundColor: '#1677ff',
+              color: '#fff'
+            }}
+          >
+            Редактировать профиль
+          </Button>
+        </Flex>
+      </Header>
       <Flex
         style={{
           padding: 24,
