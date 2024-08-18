@@ -18,7 +18,7 @@
   состав команды;
 - изменение/добавление информации о сотрудниках и проектах;
 
-# Команда frontend разработки
+# Команда разработки
 
 - [DezmonDND](https://github.com/DezmonDND) - Frontend
 - [Liza307](https://github.com/Liza307/project) - Backend
