@@ -1,7 +1,7 @@
 # Хакатон Яндекс Газпром
 
 Фронтэнд для приложения «ГИД Структура»
-[Ссылка на приложение](https://hackaton-gazprom.netlify.app)
+[Ссылка на приложение](https://hackaton-gazprom.netlify.app/company)
 
 # Описание проекта
 
@@ -20,7 +20,20 @@
 
 # Команда frontend разработки
 
-- [DezmonDND](https://github.com/DezmonDND) - разработка приложения.
+- [DezmonDND](https://github.com/DezmonDND) - Frontend
+- [Liza307](https://github.com/Liza307/project) - Backend
+- Александр Сиротин - PM
+- Данис Маматулин - PM
+- Маргарита Бикмуллина - Designer
+- Маргарита Борович - Designer
+- Дарья Корешкова - Designer
+- Ирина Рыженкова - Designer
+- Анастасия Власова - Designer
+- Евгений Исаев - BA
+- Анастасия Земцова - BA 
+- Алёна Пичкалова - SA
+- Вадим Гнездилов - SA
+- Галина Васюта - QA
 
 # Стек технологий
 
