@@ -1,7 +1,7 @@
 # Хакатон Яндекс Газпром
 
 Фронтэнд для приложения «ГИД Структура»
-[Ссылка на проект](https://dev--delightful-bublanina-904784.netlify.app/projects)
+[Ссылка на приложение](https://hackaton-gazprom.netlify.app)
 
 # Описание проекта
 
