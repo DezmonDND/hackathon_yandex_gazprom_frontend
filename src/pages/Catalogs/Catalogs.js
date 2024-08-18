@@ -1,4 +1,5 @@
 /* eslint-disable */
+// Есть неиспользованные переменные: fromValues, pagination
 import {
   Button,
   Checkbox,
@@ -295,9 +296,9 @@ function Catalogs() {
       name: values.name,
       job: values.job,
       section: values.section,
-      status: values.status || 'На работе',
-      recruitment: values.recruitment || 'Штатный',
-      skills: values.skills || ['gold'],
+      status: values.status || "На работе",
+      recruitment: values.recruitment || "Штатный",
+      skills: values.skills || ["gold"],
     };
     setDataSource([...dataSource, newData]);
     setCount(count + 1);
@@ -375,6 +376,7 @@ function Catalogs() {
               type="primary"
               style={{
                 marginBottom: 16,
+                borderRadius: 0,
               }}
             >
               + Добавить сотрудника

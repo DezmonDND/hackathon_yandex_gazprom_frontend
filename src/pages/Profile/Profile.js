@@ -1,4 +1,5 @@
 /* eslint-disable */
+// Есть неиспользованные переменные: setProfile
 import {
   Avatar,
   Badge,
@@ -94,11 +95,11 @@ function Profile() {
           <Button
             icon={<FormOutlined></FormOutlined>}
             type="link"
-            href='/edit-profile'
+            href="/edit-profile"
             style={{
               borderRadius: 0,
-              backgroundColor: '#1677ff',
-              color: '#fff'
+              backgroundColor: "#1677ff",
+              color: "#fff",
             }}
           >
             Редактировать профиль

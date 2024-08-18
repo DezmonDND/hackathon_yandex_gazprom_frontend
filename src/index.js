@@ -5,7 +5,7 @@ import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import { BrowserRouter } from "react-router-dom";
 import { ConfigProvider } from "antd";
-import ruRU from 'antd/lib/locale/ru_RU'
+import ruRU from "antd/lib/locale/ru_RU";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
